@@ -6,7 +6,7 @@
 | v1.0.0  | First stable, synced with all projects.   |
 
 
-````terraform`
+```terraform
 rule_collection_groups = {
     "application_collection_group_sample" = {
       priority = 
