@@ -62,12 +62,12 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
 
         content {
           name                  = rule.key
-          protocols             = sort(rule.value.protocols)
-          destination_ports     = sort(rule.value.destination_ports)
+          protocols             = rule.value.protocols
+          destination_ports     = rule.value.destination_ports
 
-          source_addresses = length(rule.value.source_addresses) > 0 ? sort(rule.value.source_addresses) : null
+          source_addresses = length(rule.value.source_addresses) > 0 ? rule.value.source_addresses : null
 
-          destination_addresses = length(rule.value.destination_addresses) > 0 ? sort(rule.value.destination_addresses) : null
+          destination_addresses = length(rule.value.destination_addresses) > 0 ? rule.value.destination_addresses : null
           destination_fqdns     = length(rule.value.destination_fqdns) > 0 ? rule.value.destination_fqdns : null
         }
       }
@@ -89,11 +89,11 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
           name        = rule.key
           description = rule.value.description
 
-          source_addresses = length(rule.value.source_addresses) > 0 ? sort(rule.value.source_addresses) : null
+          source_addresses = length(rule.value.source_addresses) > 0 ? rule.value.source_addresses : null
 
           destination_fqdns     = length(rule.value.destination_fqdns) > 0 ? rule.value.destination_fqdns : null
-          destination_fqdn_tags = length(rule.value.destination_fqdn_tags) > 0 ? sort(rule.value.destination_fqdn_tags) : null
-          web_categories        = length(rule.value.web_categories) > 0 ? sort(rule.value.web_categories) : null
+          destination_fqdn_tags = length(rule.value.destination_fqdn_tags) > 0 ? rule.value.destination_fqdn_tags : null
+          web_categories        = length(rule.value.web_categories) > 0 ? rule.value.web_categories : null
 
           terminate_tls = rule.value.terminate_tls
 
